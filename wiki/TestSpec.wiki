@@ -1,8 +1,0 @@
-#summary How debmarshal tests are specified
-
-= Machine specifications =
-
-Things you might want to specify for the VMs that will run during a debmarshal test:
-
-  # Memory
-  # Disk space
