@@ -1,0 +1,16 @@
+#summary A simple Debmarshal managed mirror configuration
+#labels debmarshal,debian
+
+= Introduction =
+
+This is a simple setup to mirror and upstream Debian or Ubuntu repository, keeping snapshots and allowing aliases to be kept.
+
+This is a prerequisite to having a repository of your own directly supervised packages, which will have dependencies on the mirrored archive.
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
