@@ -1,0 +1,5 @@
+*.pyc
+*.o
+debmarshal.egg-info
+build
+dist
