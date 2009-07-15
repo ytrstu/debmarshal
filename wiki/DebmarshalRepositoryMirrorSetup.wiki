@@ -107,3 +107,17 @@ mkdir dbs
 }}}
 
 Append the cd and index_pool.py invocations to your mirror script to automatically index on each download.
+
+== Snapshot a release ==
+
+{{{
+cd /var/lib/debmarshal/debian
+/usr/lib/debmarshal/make_release.py --dist dists/lenny --track lenny commit
+}}}
+
+This will create numbered subdirectories starting with dists/lenny/0 with the distribution as it exists in dists/lenny/Release at the time this is run, embedding
+snapshots within the existing release structure.  dists/lenny/latest will be a symlink to the most recent snapshot.
+
+Leave out `commit`, or replace it with `diff dists/lenny/latest` to see what make_release.py would do on a commit.
+
+Append the make_release command(s) after index_pool in your cron job.
