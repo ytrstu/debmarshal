@@ -12,23 +12,27 @@ This is a prerequisite to having a repository of your own directly supervised pa
 
 == debmirror ==
 
-* Allocate archive space
+=== Allocate archive space ===
 
 Make sure /var/lib/debmarshal has sufficient space.  Allocate at least 40G per distribution and architecture, and probably its own filesystem so it can't fill /var.
 
-* Create debmarshal user
+=== Create debmarshal user ===
+
 A separate user will download and verify packages, and later maintain the upload queue and
 distribution tracks.
+
 {{{
 adduser --disabled-login debmarshal
 }}}
 
-* Install debmirror and gnupg
+=== Install debmirror and gnupg ===
+
 {{{
 aptitude install debmirror gnupg
 }}}
 
-* Add repository keys
+=== Add repository keys ===
+
 {{{
 aptitude install debian-archive-keyring
 su - debmarshal
@@ -36,7 +40,7 @@ gpg --import /usr/share/keyrings/debian-archive-keyring.gpg
 gpg --list-keys
 }}}
 
-* Archive pull
+=== Archive pull ===
 
 Make sure archive pulls are working first, before setting up the debmarshal portion of the archive.
 
@@ -58,4 +62,3 @@ MAILTO="debmarshal@localhost"
 PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
 10 15     * * *   root  su - debmarshall -c /usr/local/bin/mirror-debian
 }}}
-
