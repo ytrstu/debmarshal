@@ -44,6 +44,8 @@ cd .gnupg
 cp pubring.gpg trustedkeys.gpg
 }}}
 
+Verify and modify trust using =gpg= with your web of trust as best you can.
+
 === Archive pull ===
 
 Make sure archive pulls are working first, before setting up the debmarshal portion of the archive.
