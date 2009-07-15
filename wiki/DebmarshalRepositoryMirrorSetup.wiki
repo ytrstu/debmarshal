@@ -94,3 +94,5 @@ cd /var/lib/debmarshal/debian
 mkdir dbs
 /usr/lib/debmarshal/index_pool.py
 }}}
+
+Append the cd and index_pool.py invocations to your mirror script to automatically index on each download.
