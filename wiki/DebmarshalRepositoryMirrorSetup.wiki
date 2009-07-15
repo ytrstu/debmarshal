@@ -121,3 +121,20 @@ snapshots within the existing release structure.  dists/lenny/latest will be a s
 Leave out `commit`, or replace it with `diff dists/lenny/latest` to see what make_release.py would do on a commit.
 
 Append the make_release command(s) after index_pool in your cron job.
+
+= Staging =
+
+The main reason to use debmarshal for even simple mirrors is to control when a particular release goes to a set of machines.  With this, you can have all of your machines pulling named aliases, and then update those aliases as you want machines to upgrade themselves.
+Each numbered release in a track can be pointed to by any number of aliases. Any number of aliases may be created to meet your staging requirements, for instance: latest, bleeding, tested, canary, golden, ...
+  latest always availble, and created and updated automatically by `make_release.py`.  The others are created by you or your own scripts and processes as follows:
+
+{{{
+cd /var/lib/debmarshal/debian
+/usr/lib/debmarshal/handle_alias.py update lenny/golden 0
+}}}
+
+These are little more than symlinks in the dists/lenny directory, but register in the central database for auditing and cleanup purposes.  To see the history of an alias:
+
+{{{
+/usr/lib/debmarshal/handle_alias.py log lenny/latest
+}}}
