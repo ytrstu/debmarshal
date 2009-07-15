@@ -138,3 +138,13 @@ These are little more than symlinks in the dists/lenny directory, but register i
 {{{
 /usr/lib/debmarshal/handle_alias.py log lenny/latest
 }}}
+
+= Export =
+
+Use any web server you like to export your `debian` or `ubuntu` tree.  Symlinks in /var/www are simplest, or create real VirtualHost entries in /etc/apache2/sites-available and a2ensite, ...
+
+{{{
+aptitude install apache2
+cd /var/www
+ln -s /var/lib/debmarshal/debian debian
+}}}
