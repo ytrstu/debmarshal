@@ -71,6 +71,16 @@ PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
 
 = Debmarshal configuration =
 
+== generate a gpg signing key ==
+
+Its easiest if the debmarshal signing key has no passphrase, but you can also put it unencrypted on ramdisk, set up a signing agent, or type in the passphrase each time debmarshal requires.
+
+{{{
+aptitude install gnupg
+su - debmarshal
+gpg --gen-key
+}}}
+
 == pool injection ==
 
 The new packages in debian/pool need to be indexed first and added to the Debmarshal database.  The configuration of the releases to track is
@@ -90,6 +100,7 @@ Multiple [] stanzas may be used to track multiple releases in the same repositor
 The cwd is used to determine where the configuration, database, pool, and dist directories are for the pool indexer.  pool_indexer assumes all package's signatures are already verified, so it is important that debmirror be configured to verify release signatures.
 
 {{{
+su - debmarshal
 cd /var/lib/debmarshal/debian
 mkdir dbs
 /usr/lib/debmarshal/index_pool.py
