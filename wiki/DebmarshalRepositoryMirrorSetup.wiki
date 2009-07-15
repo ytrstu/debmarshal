@@ -68,3 +68,29 @@ MAILTO="debmarshal@localhost"
 PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
 10 15     * * *   root  su - debmarshal -c /usr/local/bin/mirror-debian
 }}}
+
+= Debmarshal configuration =
+
+== pool injection ==
+
+The new packages in debian/pool need to be indexed first and added to the Debmarshal database.  The configuration of the releases to track is
+
+/var/lib/debmarshal/debian/config/repository
+{{{
+Mode: tracking
+Architectures: i386, amd64
+
+[[lenny]
+Origin: Debian
+Description: Debian/lenny
+}}}
+
+Multiple [] stanzas may be used to track multiple releases in the same repository.
+
+The cwd is used to determine where the configuration, database, pool, and dist directories are for the pool indexer.  pool_indexer assumes all package's signatures are already verified, so it is important that debmirror be configured to verify release signatures.
+
+{{{
+cd /var/lib/debmarshal/debian
+mkdir dbs
+/usr/lib/debmarshal/index_pool.py
+}}}
