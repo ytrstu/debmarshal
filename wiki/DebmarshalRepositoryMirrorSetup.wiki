@@ -110,8 +110,16 @@ Append the cd and index_pool.py invocations to your mirror script to automatical
 
 == Snapshot a release ==
 
+First, check to see whether anything would change between the latest snapshot and a new one.
+
 {{{
 cd /var/lib/debmarshal/debian
+/usr/lib/debmarshal/make_release.py --dist dists/lenny --track lenny diff lenny/latest
+}}}
+
+Lines that start with + or - are changes.  If there are changes in packages or versions, make a new snapshot:
+
+{{{
 /usr/lib/debmarshal/make_release.py --dist dists/lenny --track lenny commit
 }}}
 
