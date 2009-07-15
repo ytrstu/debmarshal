@@ -15,6 +15,7 @@ This is a prerequisite to having a repository of your own directly supervised pa
 === Allocate archive space ===
 
 Make sure /var/lib/debmarshal has sufficient space.  Allocate at least 40G per distribution and architecture, and probably its own filesystem so it can't fill /var.
+If one of your mirrors is rapidly changing, you'll need lots of diskspace.
 
 === Create debmarshal user ===
 
@@ -37,7 +38,10 @@ aptitude install debmirror gnupg
 aptitude install debian-archive-keyring
 su - debmarshal
 gpg --import /usr/share/keyrings/debian-archive-keyring.gpg
+gpg --keyserver hkp://subkeys.pgp.net --recv-key 55BE302B F42584E6
 gpg --list-keys
+cd .gnupg
+cp pubring.gpg trustedkeys.gpg
 }}}
 
 === Archive pull ===
