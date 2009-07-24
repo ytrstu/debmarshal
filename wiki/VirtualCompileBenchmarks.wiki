@@ -24,8 +24,8 @@ time make -j4
 || Virtualization       || Build || Host time (s) || || || || ||
 ||                      ||       || T60p ^1^ || Atom ^2^ || Quad ^3^ ||
 ---
-|| chroot ^a^          ||   -j1 ||      64s ^A^ || || ||
-||                      ||   -j2 ||      37s ||
+|| chroot ^a^          ||   -j1 ||      64s ^A^ || ^B^ ||
+||                      ||   -j2 ||      37s || || ^B^ || 
 || chroot loopback ^b^ ||   -j1 ||    54s ^A^ ||  ||
 ||                      ||   -j2 ||  36s ||  ||
 ||                      ||   -j4 ||  ||  ||
@@ -34,7 +34,7 @@ time make -j4
 || UML SKAS0 hostfs     ||   -j1 ||  142s ||
 || UML SKAS0 hostfs     ||   -j2 ||  141s ||
 || qemu ^c^            ||   -j1 || 1260s ||
-||                      ||   -j2 || ||
+||                      ||   -j2 || |1479s |
 || qemu -smp 2          ||   -j1 || ||
 ||                      ||   -j2 ||
 || qemu -smp 4          ||   -j4 || || || ||
@@ -47,7 +47,7 @@ time make -j4
 
 ^1^ - Lenovo Thinkpad T60p, 2G, 2.17GHz Core Duo, Debian/sid 2009-07.  host FS is on a LUKS encrypted partition
 
-^2^ - Intel G945 1.6GHz
+^2^ - Intel G945 1.6GHz, Debian/lenny.  Host FS is unencrypted 1TB 7200rpm drive
 
 ^3^ - HP T4300 Core2 Quad 3.4 GHz, x86_64
 
@@ -55,4 +55,8 @@ time make -j4
 
 ^b^ - `dd if=/dev/zero bs=1M seek=1000 count=0 of=lenny.ext3 ; mkfs -t ext3 -F lenny.ext3 ; mkdir lenny ; mount -o loop lenny.ext3 lenny`
 
+^c^ - `qemu -m 256M -hda lenny.ext3 -net nic -net tap,ifname=tap0,script=no -kernel /boot/vmlinuz-2.6.30-1-686 -initrd /boot/initrd.img-2.6.30-1-686 -append root=/dev/hda`
+
 ^A^ - very unexpected that host filesystem is typically slower than loopback
+
+^B^ - not actually chrooted, build timed in native Debian/lenny OS.
