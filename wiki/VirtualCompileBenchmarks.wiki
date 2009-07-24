@@ -7,6 +7,17 @@ Often the slowest part of a test run is building the test source under a protect
 = Details =
 
 {{{
+mkdir lenny-dir
+debootstrap --arch=i386 --include=ssh,build-essential,libncurses-dev,wget --verbose lenny lenny-dir
+dd if=/dev/zero bs=1M seek=1000 count=0 of=lenny.ext3
+mkfs -t ext3 -F lenny.ext3
+mkdir lenny-loopback
+mount -o loop lenny.ext3 lenny-loopback
+tar cf - -C lenny-dir . | tar xvf - -C lenny-loopback
+umount lenny-loopback
+}}}
+
+{{{
 aptitude install build-essential libncurses-dev wget
 wget -O empire-4.3.10.tar.gz 'http://sourceforge.net/project/showfiles.php?group_id=24031&package_id=40131&release_id=537696'
 tar zxvf empire-4.3.10.tar.gz
