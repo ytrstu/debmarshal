@@ -24,7 +24,7 @@ time make -j4
 || Virtualization       || Build || Host time (s) || || || || ||
 ||                      ||       || T60p ^1^ || Atom ^2^ || Quad ^3^ ||
 ---
-|| chroot ^a^          ||   -j1 ||      64s ^A^ || ^B^ ||
+|| chroot ^a^          ||   -j1 ||      64s ^A^ || 150s ^B^ ||
 ||                      ||   -j2 ||      37s || || ^B^ || 
 || chroot loopback ^b^ ||   -j1 ||    54s ^A^ ||  ||
 ||                      ||   -j2 ||  36s ||  ||
