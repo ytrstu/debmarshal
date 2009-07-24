@@ -47,17 +47,16 @@ time make -j4
 ||                      ||   -j2 || 1479s   ||
 || i386 qemu^c^ -smp 2  ||   -j2 || 1450s   ||
 || x86_64 qemu          ||   -j1 ||  ||  ||
-|| i386 kqemu           ||   -j1 || 
-|| x86_64 kqemu         ||
-|| i386 qemu^c^ -smp 4  ||   -j4 || || || ||
-|| i386 kvm             ||   -j1 || || _N/A_ ||
-||                      ||   -j2 || || _N/A_ ||
-|| x86_64 kvm           ||   -j1 || _N/A_ || _N/A_ || ||
+|| i386 kqemu           ||   -j1 || _N/A_^C^ ||
+|| x86_64 kqemu         ||   -j2 || _N/A_^C^ ||
+|| i386 kvm             ||   -j1 || 72s || _N/A_^B^ ||
+||                      ||   -j2 || 75s || _N/A_^B^ ||
+|| x86_64 kvm           ||   -j1 || _N/A_^C^ || _N/A_^B^ || ||
 || i386 openvz          ||   -j1 || || 149s ||
 ||                      ||   -j2 || || 107s ||
 ||                      ||   -j4 || || 105s ||
-|| x86_64 openvz        ||   -j1 || _N/A_ || ||
-||                      ||   -j2 || _N/A_ || 114s ||
+|| x86_64 openvz        ||   -j1 || _N/A_^C^ || ||
+||                      ||   -j2 || _N/A_^C^ || 114s ||
 || xen^b^               ||   -j1 || ||
 ||                      ||   -j2 || ||
 
@@ -77,7 +76,9 @@ time make -j4
 
 ^A^ - very unexpected that host filesystem is typically slower than loopback
 
-^B^ - not actually chrooted, build timed in native Debian/lenny OS.
+^B^ - No harware virtualization (vmx/svm) CPU feature flag.
+
+^C^ - No 64bit (lm) CPU feature flag.
 
 == Warnings ==
 
