@@ -23,7 +23,6 @@ time make -j4
 
 || Virtualization       || Build || Host time (s) || || || || ||
 ||                      ||       || T60p ^1^ || Atom ^2^ || Quad ^3^ ||
----
 || chroot ^a^          ||   -j1 ||      64s ^A^ || 150s ^B^ ||
 ||                      ||   -j2 ||      37s || || ^B^ || 
 || chroot loopback ^b^ ||   -j1 ||    54s ^A^ ||  ||
@@ -34,7 +33,7 @@ time make -j4
 || UML SKAS0 hostfs     ||   -j1 ||  142s ||
 || UML SKAS0 hostfs     ||   -j2 ||  141s ||
 || qemu ^c^            ||   -j1 || 1260s ||
-||                      ||   -j2 || |1479s |
+||                      ||   -j2 || || 1479s ||
 || qemu -smp 2          ||   -j1 || ||
 ||                      ||   -j2 ||
 || qemu -smp 4          ||   -j4 || || || ||
