@@ -55,7 +55,7 @@ time make -j4
 
 ^1^ - Lenovo Thinkpad T60p, 2G RAM, 2.17GHz Core Duo, 2.6.30 Debian/sid 2009-07.  host FS is on a LUKS encrypted partition
 
-^2^ - Intel G945 1.6GHz, 2.6.26 Debian/lenny.  1G RAM. Host FS is unencrypted 1TB 7200rpm drive
+^2^ - Intel G945 1.6GHz, 2.6.26 Debian/lenny x86_64 host.  1G RAM. Host FS is unencrypted 1TB 7200rpm drive
 
 ^3^ - HP T4300 Core2 Quad 3.4 GHz, Ubuntu/hardy 2.6.24 x86_64 host.  8G RAM.
 
