@@ -7,8 +7,16 @@ Often the slowest part of a test run is building the test source under a protect
 = Details =
 
 {{{
+aptitude install build-essential libncurses-dev wget
 wget -O empire-4.3.10.tar.gz http://sourceforge.net/project/showfiles.php?group_id=24031&package_id=40131&release_id=537696
 tar zxvf empire-4.3.10.tar.gz
+cd empire-4.3.10
+./configure
+time make
+make clean
+time make -j2
+make clean
+time make -j4
 }}}
 
 = Results =
