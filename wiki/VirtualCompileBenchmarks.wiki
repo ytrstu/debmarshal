@@ -33,23 +33,23 @@ time make -j4
 = Results =
 
 || Virtualization       || Build || Host time (s) || || || || ||
-||                      ||       || T60p ^1^ || Atom ^2^ || Quad ^3^ ||
-|| i386 chroot^a^       ||   -j1 ||  64s ^A^ || ||
-||                      ||   -j2 ||      37s || ||
-|| i386 chroot loopback^b^ ||   -j1 ||  54s ^A^ ||          ||
-||                      ||   -j2 ||  36s     ||          ||
-|| x86_64 chroot^b^     || -j1   || _N/A_    || ||
-|| UML SKAS0            ||   -j1 ||  121s    || ||
-||                      ||   -j2 ||  118s    ||
-|| UML SKAS0 hostfs     ||   -j1 ||  142s    ||
-|| UML SKAS0 hostfs     ||   -j2 ||  141s    ||
-|| i386 qemu ^c^        ||   -j1 || 1260s    ||
-||                      ||   -j2 || 1479s    ||
-|| i386 qemu ^c^ -smp 2 ||   -j2 || 1450s    ||
+||                      ||       || T60p^1^ || Atom^2^ || Quad^3^ ||
+|| i386 chroot^a^       ||   -j1 ||  64s^A^ || ||
+||                      ||   -j2 ||     37s || ||
+|| i386 chroot loopback^b^ || -j1 || 54s^A^ ||          ||
+||                      ||   -j2 ||  36s    ||          ||
+|| x86_64 chroot^b^     || -j1   || _N/A_   || ||
+|| UML SKAS0            ||   -j1 ||  121s   || ||
+||                      ||   -j2 ||  118s   ||
+|| UML SKAS0 hostfs     ||   -j1 ||  142s   ||
+|| UML SKAS0 hostfs     ||   -j2 ||  141s   ||
+|| i386 qemu^c^         ||   -j1 || 1260s   ||
+||                      ||   -j2 || 1479s   ||
+|| i386 qemu^c^ -smp 2  ||   -j2 || 1450s   ||
 || x86_64 qemu          ||   -j1 ||  ||  ||
 || i386 kqemu           ||   -j1 || 
 || x86_64 kqemu         ||
-|| i386 qemu ^c^ -smp 4 ||   -j4 || || || ||
+|| i386 qemu^c^ -smp 4  ||   -j4 || || || ||
 || i386 kvm             ||   -j1 || || _N/A_ ||
 ||                      ||   -j2 || || _N/A_ ||
 || x86_64 kvm           ||   -j1 || _N/A_ || _N/A_ || ||
@@ -57,8 +57,8 @@ time make -j4
 ||                      ||   -j2 || || 107s ||
 ||                      ||   -j4 || || 105s ||
 || x86_64 openvz        ||   -j1 || _N/A_ || ||
-||                      ||   -j2 || _N/A_ || ||
-|| xen                  ||   -j1 || ||
+||                      ||   -j2 || _N/A_ || 114s ||
+|| xen^b^               ||   -j1 || ||
 ||                      ||   -j2 || ||
 
 ^1^ - Lenovo Thinkpad T60p, 2G RAM, 2.17GHz Core Duo, 2.6.30 Debian/sid 2009-07.  host FS is on a LUKS encrypted partition
@@ -68,6 +68,8 @@ time make -j4
 ^3^ - HP T4300 Core2 Quad 3.4 GHz, Ubuntu/hardy 2.6.24 x86_64 host.  8G RAM.
 
 ^a^ - `mkdir lenny ; debootstrap --arch=i386 _args_ lenny ; chroot lenny /bin/bash`
+
+^b^ - Debian/lenny Xen 3.2
 
 ^c^ - `dd if=/dev/zero bs=1M seek=1000 count=0 of=lenny.ext3 ; mkfs -t ext3 -F lenny.ext3 ; mkdir lenny ; mount -o loop lenny.ext3 lenny`
 
