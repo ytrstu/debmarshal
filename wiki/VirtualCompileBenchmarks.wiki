@@ -34,22 +34,25 @@ time make -j4
 
 || Virtualization       || Build || Host time (s) || || || || ||
 ||                      ||       || T60p ^1^ || Atom ^2^ || Quad ^3^ ||
-|| chroot ^a^           ||   -j1 ||  64s ^A^ || 150s ^B^ ||
-||                      ||   -j2 ||      37s || 112s ^B^ || 
-|| chroot loopback ^b^  ||   -j1 ||  54s ^A^ ||          ||
+|| i386 chroot^a^       ||   -j1 ||  64s ^A^ || ||
+||                      ||   -j2 ||      37s || ||
+|| i386 chroot loopback^b^ ||   -j1 ||  54s ^A^ ||          ||
 ||                      ||   -j2 ||  36s     ||          ||
-|| UML SKAS0            ||   -j1 ||  121s    ||
+|| x86_64 chroot^b^     || -j1   || _N/A_    || ||
+|| UML SKAS0            ||   -j1 ||  121s    || ||
 ||                      ||   -j2 ||  118s    ||
 || UML SKAS0 hostfs     ||   -j1 ||  142s    ||
 || UML SKAS0 hostfs     ||   -j2 ||  141s    ||
-|| qemu ^c^             ||   -j1 || 1260s    ||
+|| i386 qemu ^c^        ||   -j1 || 1260s    ||
 ||                      ||   -j2 || 1479s    ||
-|| qemu ^c^ -smp 2          ||   -j2 ||          ||
-|| qemu ^c^ -smp 4          ||   -j4 || || || ||
-|| kvm                  ||   -j1 || ||
+|| i386 qemu ^c^ -smp 2 ||   -j2 ||          ||
+|| i386 qemu ^c^ -smp 4 ||   -j4 || || || ||
+|| i386 kvm             ||   -j1 || ||
 ||                      ||   -j2 || ||
-|| openvz               ||   -j1 || ||
+|| i386 openvz          ||   -j1 || ||
 ||                      ||   -j2 || ||
+|| x86_64 openvz        ||   -j1 || _N/A_ || 149s ||
+||                      ||   -j2 || _N/A_ || ||
 || xen                  ||   -j1 || ||
 ||                      ||   -j2 || ||
 
@@ -59,11 +62,11 @@ time make -j4
 
 ^3^ - HP T4300 Core2 Quad 3.4 GHz, Ubuntu/hardy 2.6.24 x86_64 host.  8G RAM.
 
-^a^ - `mkdir lenny ; debootstrap _args_ lenny ; chroot lenny /bin/bash`
+^a^ - `mkdir lenny ; debootstrap --arch=i386 _args_ lenny ; chroot lenny /bin/bash`
 
-^b^ - `dd if=/dev/zero bs=1M seek=1000 count=0 of=lenny.ext3 ; mkfs -t ext3 -F lenny.ext3 ; mkdir lenny ; mount -o loop lenny.ext3 lenny`
+^c^ - `dd if=/dev/zero bs=1M seek=1000 count=0 of=lenny.ext3 ; mkfs -t ext3 -F lenny.ext3 ; mkdir lenny ; mount -o loop lenny.ext3 lenny`
 
-^c^ - `qemu -m 256M -hda lenny.ext3 -net nic -net tap,ifname=tap0,script=no -kernel /boot/vmlinuz-2.6.30-1-686 -initrd /boot/initrd.img-2.6.30-1-686 -append root=/dev/hda`
+^d^ - `qemu -m 256M -hda lenny.ext3 -net nic -net tap,ifname=tap0,script=no -kernel /boot/vmlinuz-2.6.30-1-686 -initrd /boot/initrd.img-2.6.30-1-686 -append root=/dev/hda`
 
 ^A^ - very unexpected that host filesystem is typically slower than loopback
 
