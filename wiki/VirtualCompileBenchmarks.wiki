@@ -59,8 +59,8 @@ time make -j4
 ||                      ||   -j4 || || 105s ||
 || x86_64 openvz        ||   -j1 || _N/A_^C^ || 148s ||
 ||                      ||   -j2 || _N/A_^C^ || 114s ||
-|| xen^b^               ||   -j1 || ||
-||                      ||   -j2 || ||
+|| xen^b^               ||   -j1 || hot^D^ ||
+||                      ||   -j2 || hot^D^ ||
 
 ^1^ - Lenovo Thinkpad T60p, 2G RAM, 2.17GHz Core Duo, 2.6.30 Debian/sid 2009-07.  host FS is on a LUKS encrypted partition
 
@@ -81,6 +81,11 @@ time make -j4
 ^B^ - No harware virtualization (vmx/svm) CPU feature flag.
 
 ^C^ - No 64bit (lm) CPU feature flag.
+
+^D^ - Xen runs CPUs at full clock rate, and caused multiple thermal
+shutdowns before file-backed VMs could be debugged on this platform.
+so no numbers are available.  Running Xen on a laptop is a bad idea on
+power and thermal considerations.
 
 == Warnings ==
 
