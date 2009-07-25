@@ -82,7 +82,7 @@ time make -j4
 
 ^a^ - `mkdir lenny ; debootstrap --arch=i386 _args_ lenny ; chroot lenny /bin/bash`
 
-^b^ - Debian/lenny Xen 3.2
+^b^ - Debian/lenny Xen 3.2 per http://www.howtoforge.com/virtualization-with-xen-on-debian-lenny-amd64
 
 ^c^ - `dd if=/dev/zero bs=1M seek=1000 count=0 of=lenny.ext3 ; mkfs -t ext3 -F lenny.ext3 ; mkdir lenny ; mount -o loop lenny.ext3 lenny`
 
