@@ -34,8 +34,8 @@ time make -j4
 
 || Virtualization       || Build || Host time (s) || || || || ||
 ||                      ||       || T60p^1^ || Atom^2^ || Quad^3^ ||
-|| i386 chroot^a^       ||   -j1 ||  64s^A^ || ||
-||                      ||   -j2 ||     37s || ||
+|| i386 chroot^a^       ||   -j1 ||  64s^A^ || 140s ||
+||                      ||   -j2 ||     37s || 106s ||
 || i386 chroot loopback^b^ || -j1 || 54s^A^ ||          ||
 ||                      ||   -j2 ||  36s    ||          ||
 || x86_64 chroot^b^     || -j1   || _N/A_^C^   || 148s ||
@@ -54,8 +54,8 @@ time make -j4
 ||                      ||   -j2 || 75s || _N/A_^B^ ||
 || i386 kvm -smp 2      ||   -j2 || 40s || _N/A_^B^ ||
 || x86_64 kvm           ||   -j1 || _N/A_^C^ || _N/A_^B^ || ||
-|| i386 openvz          ||   -j1 || || 149s ||
-||                      ||   -j2 || || 107s ||
+|| i386 openvz          ||   -j1 || 53s || 149s ||
+||                      ||   -j2 || 39s || 107s ||
 ||                      ||   -j4 || || 105s ||
 || x86_64 openvz        ||   -j1 || _N/A_^C^ || 148s ||
 ||                      ||   -j2 || _N/A_^C^ || 114s ||
