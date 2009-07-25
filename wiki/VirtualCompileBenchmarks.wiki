@@ -2,7 +2,7 @@
 
 = Introduction =
 
-Often the slowest part of a test run is building the test source under a protected virtualization layer.  This benchmark is to configure and compile about 14M of C source code on Debian/lenny i386.  This typically takes on the order of a minute and fits in a relatively small VM, and even on very underpowered host systems under heavy virtualization is likely to finish in an hour or so.  Single and multithreaded builds (make -j2) are recorded, and multiple host root filesystem and other options are compared as the particular VM allows.
+Often the slowest part of a test run is building the test source under a protected virtualization layer.  This benchmark configures and compiles about 14M of C source code on Debian/lenny.  This typically takes on the order of a minute and fits in a relatively small VM. Even on very underpowered host systems under heavy virtualization is likely to finish in an hour or so.  Single and multithreaded builds (make -j2) are recorded, and multiple host root filesystems and other options are compared as the particular VM allows.
 
 = Details =
 
