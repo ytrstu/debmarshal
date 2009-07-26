@@ -54,7 +54,7 @@ time make -j4
 ||                      ||   -j2 || _N/A_^@^ || 114s   ||
 || i386 vserver         ||
 || x86_64 vserver       ||       || _N/A_^@^ ||
-||                      || Build || Host time (s) || || || || || ||
+||                      || Build || time(s) || || || || || ||
 || *Paravirtualization* ||       || T60p^1^ || Atom^2^ || Quad^3^ ||
 || UML SKAS0            ||   -j1 ||  121s   ||         ||
 ||                      ||   -j2 ||  118s   ||
@@ -69,7 +69,7 @@ time make -j4
 ||                      ||   -j4 || _N/A_^@^ ||        || 14s     ||
 || i386 virtualbox      ||
 || x86_64 virtualbox    ||       || _N/A_^@^ ||
-||                      || Build || Host time (s) || || || || || ||
+||                      || Build || time(s) || || || || || ||
 || *Full virtualiztion* ||       || T60p^1^ || Atom^2^ || Quad^3^ ||
 || i386 qemu^c^         ||   -j1 || 1260s   ||
 ||                      ||   -j2 || 1479s   ||
