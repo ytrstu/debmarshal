@@ -1,5 +1,5 @@
 #summary Mini design document for the debmarshal testing framework
-#labels Phase-Requirements,Phase-Design,Featured,debmarshal,testing,virtualization
+#labels Phase-Requirements,Phase-Design,Featured
 
 = Objective =
 
