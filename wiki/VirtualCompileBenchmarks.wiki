@@ -113,7 +113,11 @@ time make -j4
 = Preliminary results =
 
   1 Don't use Xen on laptops due to thermal and power considerations.
-  2 Use containers if possible (eg. OpenVZ)
+
+  2 Use containers if possible (eg. OpenVZ).
+
   3 Use UML if no kernel mods are possible and architecture is compatible.
+
   4 Qemu always works on everything, and is a good place to start a design.
-  5 KVM is fast (90%+) and drop-in Qemu compatible
+
+  5 KVM is fast (90%+) and drop-in Qemu compatible.
