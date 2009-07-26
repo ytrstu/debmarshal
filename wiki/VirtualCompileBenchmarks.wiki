@@ -120,4 +120,4 @@ time make -j4
 
   4 Qemu always works on everything, and is a good place to start a design.
 
-  5 KVM is fast (90%+) and drop-in Qemu compatible.
+  5 KVM is fast (90%+ bare metal) and drop-in Qemu compatible.
