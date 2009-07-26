@@ -1,5 +1,5 @@
 #summary A simple Debmarshal managed mirror configuration
-#labels debmarshal,debian,Ubuntu,Packages,deb
+#labels debmarshal,debian,Ubuntu,Packages,deb,Featured,Phase-Deploy
 
 = Introduction =
 
