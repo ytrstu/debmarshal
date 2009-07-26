@@ -109,3 +109,11 @@ time make -j4
 == Warnings ==
 
   Verify that the local clock is accurate.  Some run slow under some virtualization engines. QEMU and UML are particularly susceptible to this.  time an ssh session into the machine that sleeps for a known amount of time.
+
+= Preliminary results =
+
+  1 Don't use Xen on laptops due to thermal and power considerations.
+  2 Use containers if possible (eg. OpenVZ)
+  3 Use UML if no kernel mods are possible and architecture is compatible.
+  4 Qemu always works on everything, and is a good place to start a design.
+  5 KVM is fast (90%+) and drop-in Qemu compatible
