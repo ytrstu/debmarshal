@@ -1,4 +1,5 @@
 #summary Compile-benchmarks on several virtualization engines
+#labels Featured,Phase-QA,Phase-Implementation
 
 = Introduction =
 
