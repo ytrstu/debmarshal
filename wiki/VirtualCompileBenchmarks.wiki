@@ -83,6 +83,7 @@ time make -j4
 || x86_64 kvm           ||   -j1 || _N/A_^@^ || _N/A_^&^ || ||
 || i386 xen hvm         ||
 || x86_64 xen hvm       ||       || _N/A_^@^ ||
+|| VMWare               ||
 
 ^1^ - Lenovo Thinkpad T60p, 2G RAM, 2.17GHz Core Duo, 2.6.30 Debian/sid 2009-07.  host FS is on a LUKS encrypted partition
 
