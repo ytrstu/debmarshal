@@ -114,3 +114,7 @@ total 12
   ... Sources
   ... Sources.gz
 }}}
+
+The packages themselves should be moved to subdirectories of pool/, and no files should remain in incoming after a successful upload.
+
+*.build files are not normally part of an upload, and would be left behind.  *.changes files will be deleted on unsuccessful uploads, to prevent the uploader from trying and failing to verify them repeatedly.
