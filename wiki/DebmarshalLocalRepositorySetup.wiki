@@ -63,7 +63,12 @@ local/config/local0.spec
 {{{
 # specify policies for which packages go in this distribution track
 # List packages by name without revision to track latest versions
-# of those.
+# of those.  Before a package is specified, an optional version
+# restriction may also be specified.  eg.
+#    local-package (= 1)
+#    local-package
+# + means all packages. 
++
 }}}
 
 == Uploading your packages ==
@@ -118,3 +123,12 @@ total 12
 The packages themselves should be moved to subdirectories of pool/, and no files should remain in incoming after a successful upload.
 
 .build files are not normally part of an upload, and would be left behind.  .changes files will be deleted on unsuccessful uploads, to prevent the uploader from trying and failing to verify them repeatedly.
+
+== Make a first release ==
+
+{{{
+cd /var/lib/debmarshal/local
+/usr/lib/debmarshal/make_release.py --release snapshot/latest --track local0 commit
+}}}
+
+dists/local0 should have a similar layout to dists/snapshot, until you start putting restrictions into your local0.spec file.
