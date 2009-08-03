@@ -10,7 +10,7 @@ This is a setup for a local repository for your own packages on top of a Debmars
 
 == Upstream mirror repository ==
 
-Set up a mirror as in DebmarshalrepositoryMirrorSetup.  make sure there is sufficient space for your own local packages (usually very small compared to an upstream repository).
+Set up a mirror as in DebmarshalRepositoryMirrorSetup.  make sure there is sufficient space for your own local packages (usually very small compared to an upstream repository).
 
 == Your gnupg key ==
 
