@@ -132,3 +132,37 @@ cd /var/lib/debmarshal/local
 }}}
 
 dists/local0 should have a similar layout to dists/snapshot, until you start putting restrictions into your local0.spec file.
+
+== Check new changes ==
+
+After modifying the pool (through enter_incoming.py) or the package specification (.spec file), there may or may not be changes to the Packages files for a release track.  To preview them:
+
+{{{
+/usr/lib/debmarshal/make_release.py --release snapshot/latest --track local0 diff local0/latest
+}}}
+
+This pulls in packages from snapshot/latest acording to the local0 spec file, then diffs the result against the current contents of local0/latest.  No change to the repository is made.  The output from this command may be used to determine when a new release should be made again using the same command as the initial track creation above (with commit).
+
+=== Further verification ===
+
+Undeclared package conflicts such as file overlaps, and unresolvable dependencies may be detected with a verify run.
+
+{{{
+/usr/lib/debmarshal/make_release.py --release goowiki0/latest --track goowiki0 verify
+}}}
+
+The output from this command may be used to determine when to bump a label (eg. "testable") to the latest release with all dependencies met and conflicts declared.
+
+Sample output:
+{{{
+INFO     Importing dependency data from http://localhost/debian
+INFO     Checking dependency for architecture i386
+INFO     Validating local-package_1_i386 ...
+WARNING  Cannot fulfill dependency locales (>= 2.3.11)
+ERROR    local-package_1_i386 is uninstallable
+}}}
+
+
+This functionality is very similar to the recently uploaded edos-distcheck, which may be used as a replacement in the future.  See http://www.edos-project.org/xwiki/bin/view/Main/WebHome .
+
+
