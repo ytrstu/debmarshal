@@ -166,3 +166,6 @@ ERROR    local-package_1_i386 is uninstallable
 This functionality is very similar to the recently uploaded edos-distcheck, which may be used as a replacement in the future.  See http://www.edos-project.org/xwiki/bin/view/Main/WebHome .
 
 
+== Staging and export ==
+
+These are carried out using the same commands, but in the local rather than debian (or ubuntu) repository.  The same labels as in the upstream mirror are usually updated at the same time, as they are tested together.  See DebmarshalRepositoryMirrorSetup#Staging .
