@@ -85,3 +85,32 @@ su - debmarshal
 cd /var/lib/debmarshal/local
 /usr/lib/debmarshal/enter_incoming.py
 }}}
+
+Verify that the snapshot dist looks correct for the newly uploaded packages.  Normally you wouldn't use the snapshot track (which always has the latest packages just uploaded), but the more carefully maintained local0 track.
+{{{
+ls -lR dists/snapshot
+dists/snapshot:
+  ... 0
+  ... latest -> 0
+dists/snapshot/0:
+  ... local
+  ... Release
+  ... Release.gpg
+dists/snapshot/0/local:
+  ... binary-amd64
+  ... binary-i386
+  ... source
+dists/snapshot/0/local/binary-amd64:
+  ... Packages
+  ... Packages.gz
+  ... Release
+dists/snapshot/0/local/binary-i386:
+  ... Packages
+  ... Packages.gz
+  ... Release
+dists/snapshot/0/local/source:
+total 12
+  ... Release
+  ... Sources
+  ... Sources.gz
+}}}
