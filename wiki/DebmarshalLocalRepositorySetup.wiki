@@ -148,7 +148,7 @@ This pulls in packages from snapshot/latest acording to the local0 spec file, th
 Undeclared package conflicts such as file overlaps, and unresolvable dependencies may be detected with a verify run.
 
 {{{
-/usr/lib/debmarshal/make_release.py --release goowiki0/latest --track local0 verify
+/usr/lib/debmarshal/make_release.py --release local0/latest --track local0 verify
 }}}
 
 The output from this command may be used to determine when to bump a label (eg. "testable") to the latest release with all dependencies met and conflicts declared.
