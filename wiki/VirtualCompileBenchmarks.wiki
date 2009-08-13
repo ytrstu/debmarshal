@@ -34,7 +34,7 @@ time make -j4
 = Results =
 
 ||                      || Build || time(s) || || || || || ||
-|| *Containers*         ||       || T60p^1^ || Atom^2^ || Quad^3^ ||
+|| *Containers*         ||       || T60p^1^ || Atom^2^ || Quad^3^ || || || ||
 || i386 chroot^a^       ||   -j1 ||  64s^*^ || 140s    || 39s     ||
 ||                      ||   -j2 ||     37s || 106s    || 20s     ||
 ||                      ||   -j4 ||         ||         || 13s     ||
@@ -48,19 +48,19 @@ time make -j4
 || x86_64 chroot loopback || -j1 || _N/A_^@^ ||        || 40s     ||
 ||                        || -j2 || _N/A_^@^ ||        || 21s     ||
 ||                        || -j2 || _N/A_^@^ ||        || 14s     ||
-|| i386 openvz          ||   -j1 || 53s || 149s ||
-||                      ||   -j2 || 39s || 107s ||
-||                      ||   -j4 || || 105s ||
-|| x86_64 openvz        ||   -j1 || _N/A_^@^ || 148s   ||
-||                      ||   -j2 || _N/A_^@^ || 114s   ||
-|| i386 vserver         ||
-|| x86_64 vserver       ||       || _N/A_^@^ ||
+|| i386 openvz          ||   -j1 || 53s || 149s || ||
+||                      ||   -j2 || 39s || 107s || ||
+||                      ||   -j4 || || 105s || ||
+|| x86_64 openvz        ||   -j1 || _N/A_^@^ || 148s   || ||
+||                      ||   -j2 || _N/A_^@^ || 114s   || ||
+|| i386 vserver         ||       ||          ||        || ||
+|| x86_64 vserver       ||       || _N/A_^@^ ||        || ||
 ||                      || Build || time(s) || || || || || ||
-|| *Paravirtualization* ||       || T60p^1^ || Atom^2^ || Quad^3^ ||
-|| UML SKAS0            ||   -j1 ||  121s   ||         ||
-||                      ||   -j2 ||  118s   ||
-|| UML SKAS0 hostfs     ||   -j1 ||  142s   ||
-|| UML SKAS0 hostfs     ||   -j2 ||  141s   ||
+|| *Paravirtualization* ||       || T60p^1^ || Atom^2^ || Quad^3^ || || || ||
+|| UML SKAS0            ||   -j1 ||  121s   ||         || ||
+||                      ||   -j2 ||  118s   ||         || ||
+|| UML SKAS0 hostfs     ||   -j1 ||  142s   ||         || ||
+|| UML SKAS0 hostfs     ||   -j2 ||  141s   ||         || ||
 || i386 xen^b^          ||   -j1 || hot^+^  ||         || 38s     ||
 ||                      ||   -j2 || hot^+^  ||         || 39s     ||
 || x86_64 xen^b^        ||   -j1 || _N/A_^@^ ||        || 38s     ||
@@ -68,23 +68,23 @@ time make -j4
 || 4cpu x86_64 xen      ||   -j1 || _N/A_^@^ ||        || 40s     ||
 ||                      ||   -j2 || _N/A_^@^ ||        || 21s     ||
 ||                      ||   -j4 || _N/A_^@^ ||        || 14s     ||
-|| i386 virtualbox      ||
-|| x86_64 virtualbox    ||       || _N/A_^@^ ||
+|| i386 virtualbox      ||       ||          ||        ||         ||
+|| x86_64 virtualbox    ||       || _N/A_^@^ ||        ||         ||
 ||                      || Build || time(s) || || || || || ||
-|| *Full virtualiztion* ||       || T60p^1^ || Atom^2^ || Quad^3^ ||
-|| i386 qemu^c^         ||   -j1 || 1260s   ||
-||                      ||   -j2 || 1479s   ||
-|| i386 qemu^c^ -smp 2  ||   -j2 || 1450s   ||
-|| x86_64 qemu          ||   -j1 ||  ||  ||
-|| i386 kqemu           ||   -j1 ||  ||
-|| x86_64 kqemu         ||   -j2 || _N/A_^@^ ||
-|| i386 kvm             ||   -j1 || 72s || _N/A_^&^ ||
-||                      ||   -j2 || 75s || _N/A_^&^ ||
-|| i386 kvm -smp 2      ||   -j2 || 40s || _N/A_^&^ ||
-|| x86_64 kvm           ||   -j1 || _N/A_^@^ || _N/A_^&^ || ||
-|| i386 xen hvm         ||
-|| x86_64 xen hvm       ||       || _N/A_^@^ ||
-|| VMWare               ||
+|| *Full virtualiztion* ||       || T60p^1^ || Atom^2^ || Quad^3^ || || || ||
+|| i386 qemu^c^         ||   -j1 || 1260s   ||         ||         ||
+||                      ||   -j2 || 1479s   ||         ||         ||
+|| i386 qemu^c^ -smp 2  ||   -j2 || 1450s   ||         ||         ||
+|| x86_64 qemu          ||   -j1 ||         ||         ||         ||
+|| i386 kqemu           ||   -j1 ||         ||         ||         ||
+|| x86_64 kqemu         ||   -j2 || _N/A_^@^ ||        ||         ||
+|| i386 kvm             ||   -j1 ||     72s || _N/A_^&^ ||        ||
+||                      ||   -j2 ||  75s    || _N/A_^&^ ||        ||
+|| i386 kvm -smp 2      ||   -j2 ||  40s    || _N/A_^&^ ||        ||
+|| x86_64 kvm           ||   -j1 || _N/A_^@^ || _N/A_^&^ ||       ||
+|| i386 xen hvm         ||       ||         ||          ||        ||
+|| x86_64 xen hvm       ||       || _N/A_^@^ ||         ||        ||
+|| VMWare               ||       ||         ||          ||        ||
 
 ^1^ - Lenovo Thinkpad T60p, 2G RAM, 2.17GHz Core Duo, 2.6.30 Debian/sid 2009-07.  host FS is on a LUKS encrypted partition
 
