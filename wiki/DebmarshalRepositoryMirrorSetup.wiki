@@ -66,7 +66,7 @@ Make sure archive pulls are working first, before setting up the debmarshal port
 {{{
 MAILTO="debmarshal@localhost"
 PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
-10 15     * * *   root  su - debmarshal -c /usr/local/bin/mirror-debian
+10 15     * * *   debmarshal   /usr/local/bin/mirror-debian
 }}}
 
 = Debmarshal configuration =
