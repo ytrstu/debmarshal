@@ -35,16 +35,12 @@ aptitude install debmirror gnupg
 === Add repository keys ===
 
 {{{
-aptitude install debian-archive-keyring
 su - debmarshal
-gpg --import /usr/share/keyrings/debian-archive-keyring.gpg
-gpg --keyserver hkp://subkeys.pgp.net --recv-key 55BE302B F42584E6
-gpg --list-keys
-cd .gnupg
-cp pubring.gpg trustedkeys.gpg
+gpg --no-default-keyring --keyring ~/.gnupg/trustedkeys.gpg --keyserver hkp://subkeys.pgp.net --recv-key 55BE302B F42584E6
+gpg --no-default-keyring --keyring ~/.gnupg/trustedkeys.gpg --list-key
 }}}
 
-Verify and modify trust using =gpg= with your web of trust as best you can.
+Verify and modify trust using =gpg= with your web of trust as well you can.
 
 === Archive pull ===
 
