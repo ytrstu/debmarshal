@@ -3,6 +3,12 @@
 
 = Introduction =
 
+The best way to do a verbatim mirror into a debmarshal repository is using a patch and flag (--debmarshal) to debmirror to build the repository directly.  See http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=550007 for the patch and status of merging that into upstream.
+
+Eventually Mode: tracking in debmarshal will go away.
+
+= Debmarshal tracking mode =
+
 This is a simple setup to mirror and upstream Debian or Ubuntu repository, keeping snapshots and allowing aliases to be kept.
 
 This is a prerequisite to having a repository of your own directly supervised packages, which will have dependencies on the mirrored archive.
