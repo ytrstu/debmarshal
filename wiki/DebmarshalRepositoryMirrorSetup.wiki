@@ -61,6 +61,7 @@ Make sure archive pulls are working first, before setting up the debmarshal port
         --section=main,contrib,non-free,main/debian-installer \
         --arch=i386,amd64 \
         --nocleanup --source \
+        --debmarshal \
         /var/lib/debmarshal/debian
 }}}
 
